@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Class_homework
+{
+    internal class Employee
+    {
+        public string FullName { get; set; }
+        public decimal Salary { get; set; }
+        public int YearsOfExperience { get;set; }
+
+        public Employee(string fullName, decimal salary, int yearsOfExperience)
+        {
+            if (string.IsNullOrWhiteSpace(fullName))
+            {
+                throw new ArgumentException("Full name cannot be empty.");
+            }
+
+            if (salary < 800)
+            {
+                throw new ArgumentException("Salary must be at least 800.");
+            }
+
+            if (yearsOfExperience < 0 || yearsOfExperience > 50)
+            {
+                throw new ArgumentException("Years of experience must be between 0 and 50.");
+            }
+
+            FullName = fullName;
+            Salary = salary;
+            YearsOfExperience = yearsOfExperience;
+        }
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Name: {FullName}, Salary: {Salary}, Experience: {YearsOfExperience} years");
+        }
+
+    }
+}
