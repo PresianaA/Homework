@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Class_homework
 {
@@ -10,15 +6,22 @@ namespace Class_homework
     {
         static void Main(string[] args)
         {
-            Employee emp1 = new Employee("Ivan Markov", 1200, 5);
-            Employee emp2 = new Employee("Maria Ganeva", 2000, 10);
-            Employee emp3 = new Employee("Sofia Pavlova", 900, 2);
-            Employee emp4 = new Employee("Petq Evdokieva", 1100, 4);
+            try
+            {
+                Employee emp1 = new Employee("Ivan Markov", 1200, 5);
+                Employee emp2 = new Employee("Maria Ganeva", 2000, 10);
 
-            emp1.PrintInfo();
-            emp2.PrintInfo();
-            emp3.PrintInfo();
-            emp4.PrintInfo();
+                emp1.PrintInfo();
+                emp2.PrintInfo();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Input error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred: " + ex.Message);
+            }
         }
     }
 }
